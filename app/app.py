@@ -4,7 +4,7 @@ from discord.ext import commands
 from discord.ui import View, Button
 import os
 from dotenv import load_dotenv
-
+from keep_alive import keep_alive
 load_dotenv()
 # ボットの設定
 intents = discord.Intents.default()
@@ -210,4 +210,5 @@ async def on_ready():
     await bot.tree.sync()
     print(f'ログインしました: {bot.user}')
 
+keep_alive()
 bot.run(os.getenv("TOKEN"))
